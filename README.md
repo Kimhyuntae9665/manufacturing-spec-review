@@ -1,4 +1,11 @@
 # 제조 부품 사양 대조 검토
+
+![CPU application and optional local model architecture](docs/architecture.png)
+
+[Editable SVG](docs/architecture.svg) · [Architecture provenance](docs/architecture-provenance.md)
+
+Browser and authorized JSON feed Python source validation and Decimal comparison. Optional Ollama/Qwen extracts each document separately and serially; human review and audit persist in SQLite.
+
 승인된 부품 사양서와 검토 중인 도면 텍스트 주석의 **재질·표면처리·명목 피막 두께**를 원문과 함께 대조하는 자체 합성 업무 데모입니다. Qwen3 4B는 문서별 추출을 제안하고, 대조·단위 변환·출처·권한·검토 상태는 서버 규칙이 담당합니다.
 
 대상 사용자는 제조 설계·품질 검토자와 부품 문서 담당 엔지니어입니다. 부품 개정과 문서 개정을 구분하고 승인 사양을 기준으로 candidate draft를 검토합니다. 사람의 기록은 확인/후속 조치 요청이며 설계 승인이나 제조 적합성 판정이 아닙니다.
