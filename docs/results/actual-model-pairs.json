@@ -1,0 +1,1147 @@
+{
+  "scope": "3 fixed synthetic development pairs; not heldout or expert validation",
+  "synthetic": true,
+  "request_strategy": "one document at a time, two independent calls per pair",
+  "outcomes": [
+    {
+      "part": "P001",
+      "result": {
+        "target_part": "P001",
+        "reference": {
+          "id": "SRC-001",
+          "part_number": "P001",
+          "part_revision": "A",
+          "document_revision": 3,
+          "document_role": "reference_spec",
+          "approval_state": "approved",
+          "site": "A",
+          "source_hash": "1916a7c6e3cbc1dcc7b06ec194cc6022ceb217aa2fb8a98ce3837ae69cd90a0c"
+        },
+        "candidate": {
+          "id": "SRC-002",
+          "part_number": "P001",
+          "part_revision": "A",
+          "document_revision": 2,
+          "document_role": "candidate_drawing",
+          "approval_state": "draft",
+          "site": "A",
+          "source_hash": "4a692ed3c44a8a8da62519d78d7001524df3cbe0389e44f8c3c9e93187a6a9b7"
+        },
+        "extractions": [
+          {
+            "document_id": "SRC-001",
+            "provenance": {
+              "id": "SRC-001",
+              "part_number": "P001",
+              "part_revision": "A",
+              "document_revision": 3,
+              "document_role": "reference_spec",
+              "approval_state": "approved",
+              "site": "A",
+              "source_hash": "1916a7c6e3cbc1dcc7b06ec194cc6022ceb217aa2fb8a98ce3837ae69cd90a0c"
+            },
+            "fields": {
+              "material_grade": {
+                "raw_value": "AL5052",
+                "quote": "Material grade: AL5052",
+                "line": 3,
+                "span_start": 35,
+                "span_end": 57,
+                "state": "observed",
+                "value": "AL5052",
+                "unit": null
+              },
+              "finish_code": {
+                "raw_value": "BLACK_ANODIZE",
+                "quote": "Finish code: BLACK_ANODIZE",
+                "line": 4,
+                "span_start": 58,
+                "span_end": 84,
+                "state": "observed",
+                "value": "BLACK_ANODIZE",
+                "unit": null
+              },
+              "coating_thickness": {
+                "raw_value": "10 µm",
+                "quote": "Coating thickness: 10 µm",
+                "line": 5,
+                "span_start": 85,
+                "span_end": 109,
+                "state": "nominal",
+                "value": "10",
+                "unit": "µm",
+                "normalized_um": "10"
+              }
+            },
+            "extraction_state": "model_proposal_source_verified",
+            "model_state": "source_verified",
+            "metrics": {
+              "load_duration": 1679644226,
+              "prompt_eval_count": 235,
+              "prompt_eval_duration": 61917321,
+              "eval_count": 111,
+              "eval_duration": 1391372516,
+              "total_duration": 3617159869,
+              "done_reason": "stop",
+              "latency_ms": 3619.1,
+              "model": "qwen3:4b",
+              "requested_think": false,
+              "thinking_chars": 0,
+              "context_limit": 4096,
+              "concurrency": 1,
+              "trace_id": "238c6efa-b651-4546-ac3f-74fc95e944df",
+              "model_task": "independent_full_cell_extraction",
+              "thinking_off_verified": false,
+              "comparison_origin": "deterministic_rules",
+              "source_identity_origin": "server_envelope"
+            }
+          },
+          {
+            "document_id": "SRC-002",
+            "provenance": {
+              "id": "SRC-002",
+              "part_number": "P001",
+              "part_revision": "A",
+              "document_revision": 2,
+              "document_role": "candidate_drawing",
+              "approval_state": "draft",
+              "site": "A",
+              "source_hash": "4a692ed3c44a8a8da62519d78d7001524df3cbe0389e44f8c3c9e93187a6a9b7"
+            },
+            "fields": {
+              "material_grade": {
+                "raw_value": "AL5052",
+                "quote": "Material grade: AL5052",
+                "line": 3,
+                "span_start": 35,
+                "span_end": 57,
+                "state": "observed",
+                "value": "AL5052",
+                "unit": null
+              },
+              "finish_code": {
+                "raw_value": "BLACK_ANODIZE",
+                "quote": "Finish code: BLACK_ANODIZE",
+                "line": 4,
+                "span_start": 58,
+                "span_end": 84,
+                "state": "observed",
+                "value": "BLACK_ANODIZE",
+                "unit": null
+              },
+              "coating_thickness": {
+                "raw_value": "0.010 mm",
+                "quote": "Coating thickness: 0.010 mm",
+                "line": 5,
+                "span_start": 85,
+                "span_end": 112,
+                "state": "nominal",
+                "value": "0.010",
+                "unit": "mm",
+                "normalized_um": "10"
+              }
+            },
+            "extraction_state": "model_proposal_source_verified",
+            "model_state": "source_verified",
+            "metrics": {
+              "load_duration": 187681257,
+              "prompt_eval_count": 237,
+              "prompt_eval_duration": 18857241,
+              "eval_count": 115,
+              "eval_duration": 1392619816,
+              "total_duration": 2072539493,
+              "done_reason": "stop",
+              "latency_ms": 2074.2,
+              "model": "qwen3:4b",
+              "requested_think": false,
+              "thinking_chars": 0,
+              "context_limit": 4096,
+              "concurrency": 1,
+              "trace_id": "42e28768-20a4-4113-915e-6adb0a8b395c",
+              "model_task": "independent_full_cell_extraction",
+              "thinking_off_verified": false,
+              "comparison_origin": "deterministic_rules",
+              "source_identity_origin": "server_envelope"
+            }
+          }
+        ],
+        "checks": [
+          {
+            "field": "material_grade",
+            "state": "same_notation",
+            "reference_value": "AL5052",
+            "candidate_value": "AL5052",
+            "explanation": "전체 코드 표기의 동일성만 대조했습니다. 재질 대체·공학적 동등성은 판단하지 않습니다."
+          },
+          {
+            "field": "finish_code",
+            "state": "same_notation",
+            "reference_value": "BLACK_ANODIZE",
+            "candidate_value": "BLACK_ANODIZE",
+            "explanation": "전체 코드 표기의 동일성만 대조했습니다. 재질 대체·공학적 동등성은 판단하지 않습니다."
+          },
+          {
+            "field": "coating_thickness",
+            "state": "same_declared_nominal",
+            "reference_value": "10 µm",
+            "candidate_value": "0.010 mm",
+            "explanation": "선언한 명목 mm/µm 환산값을 대조했습니다. 공차나 제조 적합성은 판단하지 않습니다."
+          }
+        ],
+        "overall": "annotations_match",
+        "required_coverage": {
+          "observed": 3,
+          "required": 3,
+          "complete": true
+        },
+        "fingerprint": "9fb57e9b31992d262313d1394e9ef102298d25a690037016143132ec209cb79f",
+        "policy_version": "annotation-v1",
+        "scope": "document_notation_only_not_engineering_or_manufacturing_approval",
+        "id": "69943ccbf20d4727af36569711b5950b",
+        "site": "A",
+        "mode": "model",
+        "model_state": "source_verified",
+        "status": "pending_review",
+        "review_state": "unreviewed",
+        "review": null,
+        "audit": [
+          {
+            "id": "e55492d672b44dc08f3e039110e2d6c0",
+            "timestamp": "2026-09-30T09:27:36Z",
+            "part_number": "P001",
+            "comparison_id": "69943ccbf20d4727af36569711b5950b",
+            "actor_id": "A-reviewer",
+            "action": "comparison_created",
+            "mode": "model",
+            "model_state": "source_verified",
+            "overall": "annotations_match",
+            "historical": false
+          }
+        ],
+        "stale": false,
+        "metrics": {
+          "synthetic": true,
+          "requested_mode": "model",
+          "scope": "notation_review_only",
+          "model_calls": [
+            {
+              "document_id": "SRC-001",
+              "load_duration": 1679644226,
+              "prompt_eval_count": 235,
+              "prompt_eval_duration": 61917321,
+              "eval_count": 111,
+              "eval_duration": 1391372516,
+              "total_duration": 3617159869,
+              "done_reason": "stop",
+              "latency_ms": 3619.1,
+              "model": "qwen3:4b",
+              "requested_think": false,
+              "thinking_chars": 0,
+              "context_limit": 4096,
+              "concurrency": 1,
+              "trace_id": "238c6efa-b651-4546-ac3f-74fc95e944df",
+              "thinking_off_verified": false
+            },
+            {
+              "document_id": "SRC-002",
+              "load_duration": 187681257,
+              "prompt_eval_count": 237,
+              "prompt_eval_duration": 18857241,
+              "eval_count": 115,
+              "eval_duration": 1392619816,
+              "total_duration": 2072539493,
+              "done_reason": "stop",
+              "latency_ms": 2074.2,
+              "model": "qwen3:4b",
+              "requested_think": false,
+              "thinking_chars": 0,
+              "context_limit": 4096,
+              "concurrency": 1,
+              "trace_id": "42e28768-20a4-4113-915e-6adb0a8b395c",
+              "thinking_off_verified": false
+            }
+          ],
+          "model_call_count": 2,
+          "model_latency_ms": 5693.3,
+          "generated_tokens": 226,
+          "prompt_tokens": 472,
+          "model_total_duration_ns": 5689699362,
+          "total_ms": 5699.762
+        }
+      }
+    },
+    {
+      "part": "P002",
+      "result": {
+        "target_part": "P002",
+        "reference": {
+          "id": "SRC-003",
+          "part_number": "P002",
+          "part_revision": "B",
+          "document_revision": 3,
+          "document_role": "reference_spec",
+          "approval_state": "approved",
+          "site": "A",
+          "source_hash": "42dce8b5147c153b7b23b211c2afd1b2de1bb2b91dbd478f680ab154aa7df024"
+        },
+        "candidate": {
+          "id": "SRC-004",
+          "part_number": "P002",
+          "part_revision": "B",
+          "document_revision": 2,
+          "document_role": "candidate_drawing",
+          "approval_state": "draft",
+          "site": "A",
+          "source_hash": "c64fae824819a6fc6afae538abfb9f26109c00b33738b3be461d4c0ee6ef885e"
+        },
+        "extractions": [
+          {
+            "document_id": "SRC-003",
+            "provenance": {
+              "id": "SRC-003",
+              "part_number": "P002",
+              "part_revision": "B",
+              "document_revision": 3,
+              "document_role": "reference_spec",
+              "approval_state": "approved",
+              "site": "A",
+              "source_hash": "42dce8b5147c153b7b23b211c2afd1b2de1bb2b91dbd478f680ab154aa7df024"
+            },
+            "fields": {
+              "material_grade": {
+                "raw_value": "SUS304",
+                "quote": "Material grade: SUS304",
+                "line": 3,
+                "span_start": 35,
+                "span_end": 57,
+                "state": "observed",
+                "value": "SUS304",
+                "unit": null
+              },
+              "finish_code": {
+                "raw_value": "PASSIVATE",
+                "quote": "Finish code: PASSIVATE",
+                "line": 4,
+                "span_start": 58,
+                "span_end": 80,
+                "state": "observed",
+                "value": "PASSIVATE",
+                "unit": null
+              },
+              "coating_thickness": {
+                "raw_value": "4 µm",
+                "quote": "Coating thickness: 4 µm",
+                "line": 5,
+                "span_start": 81,
+                "span_end": 104,
+                "state": "nominal",
+                "value": "4",
+                "unit": "µm",
+                "normalized_um": "4"
+              }
+            },
+            "extraction_state": "model_proposal_source_verified",
+            "model_state": "source_verified",
+            "metrics": {
+              "load_duration": 143040355,
+              "prompt_eval_count": 231,
+              "prompt_eval_duration": 28593311,
+              "eval_count": 104,
+              "eval_duration": 1255934409,
+              "total_duration": 1880145820,
+              "done_reason": "stop",
+              "latency_ms": 1881.77,
+              "model": "qwen3:4b",
+              "requested_think": false,
+              "thinking_chars": 0,
+              "context_limit": 4096,
+              "concurrency": 1,
+              "trace_id": "626260f1-deea-44df-947f-098bcbccb58a",
+              "model_task": "independent_full_cell_extraction",
+              "thinking_off_verified": false,
+              "comparison_origin": "deterministic_rules",
+              "source_identity_origin": "server_envelope"
+            }
+          },
+          {
+            "document_id": "SRC-004",
+            "provenance": {
+              "id": "SRC-004",
+              "part_number": "P002",
+              "part_revision": "B",
+              "document_revision": 2,
+              "document_role": "candidate_drawing",
+              "approval_state": "draft",
+              "site": "A",
+              "source_hash": "c64fae824819a6fc6afae538abfb9f26109c00b33738b3be461d4c0ee6ef885e"
+            },
+            "fields": {
+              "material_grade": {
+                "raw_value": "SUS304L",
+                "quote": "Material grade: SUS304L",
+                "line": 3,
+                "span_start": 35,
+                "span_end": 58,
+                "state": "observed",
+                "value": "SUS304L",
+                "unit": null
+              },
+              "finish_code": {
+                "raw_value": "PASSIVATE",
+                "quote": "Finish code: PASSIVATE",
+                "line": 4,
+                "span_start": 59,
+                "span_end": 81,
+                "state": "observed",
+                "value": "PASSIVATE",
+                "unit": null
+              },
+              "coating_thickness": {
+                "raw_value": "4 µm",
+                "quote": "Coating thickness: 4 µm",
+                "line": 5,
+                "span_start": 82,
+                "span_end": 105,
+                "state": "nominal",
+                "value": "4",
+                "unit": "µm",
+                "normalized_um": "4"
+              }
+            },
+            "extraction_state": "model_proposal_source_verified",
+            "model_state": "source_verified",
+            "metrics": {
+              "load_duration": 178194663,
+              "prompt_eval_count": 232,
+              "prompt_eval_duration": 19789789,
+              "eval_count": 106,
+              "eval_duration": 1268556344,
+              "total_duration": 1884584051,
+              "done_reason": "stop",
+              "latency_ms": 1886.47,
+              "model": "qwen3:4b",
+              "requested_think": false,
+              "thinking_chars": 0,
+              "context_limit": 4096,
+              "concurrency": 1,
+              "trace_id": "4612c4c1-cf00-4d97-92c6-97ae46df5be7",
+              "model_task": "independent_full_cell_extraction",
+              "thinking_off_verified": false,
+              "comparison_origin": "deterministic_rules",
+              "source_identity_origin": "server_envelope"
+            }
+          }
+        ],
+        "checks": [
+          {
+            "field": "material_grade",
+            "state": "notation_difference",
+            "reference_value": "SUS304",
+            "candidate_value": "SUS304L",
+            "explanation": "전체 코드 표기의 동일성만 대조했습니다. 재질 대체·공학적 동등성은 판단하지 않습니다."
+          },
+          {
+            "field": "finish_code",
+            "state": "same_notation",
+            "reference_value": "PASSIVATE",
+            "candidate_value": "PASSIVATE",
+            "explanation": "전체 코드 표기의 동일성만 대조했습니다. 재질 대체·공학적 동등성은 판단하지 않습니다."
+          },
+          {
+            "field": "coating_thickness",
+            "state": "same_declared_nominal",
+            "reference_value": "4 µm",
+            "candidate_value": "4 µm",
+            "explanation": "선언한 명목 mm/µm 환산값을 대조했습니다. 공차나 제조 적합성은 판단하지 않습니다."
+          }
+        ],
+        "overall": "needs_review",
+        "required_coverage": {
+          "observed": 3,
+          "required": 3,
+          "complete": true
+        },
+        "fingerprint": "e0e7ea30e35ca8b4fdff875c8a203374a755ab2c254f6dba843e205fd6423949",
+        "policy_version": "annotation-v1",
+        "scope": "document_notation_only_not_engineering_or_manufacturing_approval",
+        "id": "00e8f204d4be46f9b2e3e4b77113d8a1",
+        "site": "A",
+        "mode": "model",
+        "model_state": "source_verified",
+        "status": "pending_review",
+        "review_state": "unreviewed",
+        "review": null,
+        "audit": [
+          {
+            "id": "7cc61135dacc47a89ec02f5deb0e5727",
+            "timestamp": "2026-09-30T09:27:40Z",
+            "part_number": "P002",
+            "comparison_id": "00e8f204d4be46f9b2e3e4b77113d8a1",
+            "actor_id": "A-reviewer",
+            "action": "comparison_created",
+            "mode": "model",
+            "model_state": "source_verified",
+            "overall": "needs_review",
+            "historical": false
+          }
+        ],
+        "stale": false,
+        "metrics": {
+          "synthetic": true,
+          "requested_mode": "model",
+          "scope": "notation_review_only",
+          "model_calls": [
+            {
+              "document_id": "SRC-003",
+              "load_duration": 143040355,
+              "prompt_eval_count": 231,
+              "prompt_eval_duration": 28593311,
+              "eval_count": 104,
+              "eval_duration": 1255934409,
+              "total_duration": 1880145820,
+              "done_reason": "stop",
+              "latency_ms": 1881.77,
+              "model": "qwen3:4b",
+              "requested_think": false,
+              "thinking_chars": 0,
+              "context_limit": 4096,
+              "concurrency": 1,
+              "trace_id": "626260f1-deea-44df-947f-098bcbccb58a",
+              "thinking_off_verified": false
+            },
+            {
+              "document_id": "SRC-004",
+              "load_duration": 178194663,
+              "prompt_eval_count": 232,
+              "prompt_eval_duration": 19789789,
+              "eval_count": 106,
+              "eval_duration": 1268556344,
+              "total_duration": 1884584051,
+              "done_reason": "stop",
+              "latency_ms": 1886.47,
+              "model": "qwen3:4b",
+              "requested_think": false,
+              "thinking_chars": 0,
+              "context_limit": 4096,
+              "concurrency": 1,
+              "trace_id": "4612c4c1-cf00-4d97-92c6-97ae46df5be7",
+              "thinking_off_verified": false
+            }
+          ],
+          "model_call_count": 2,
+          "model_latency_ms": 3768.24,
+          "generated_tokens": 210,
+          "prompt_tokens": 463,
+          "model_total_duration_ns": 3764729871,
+          "total_ms": 3769.609
+        }
+      }
+    },
+    {
+      "part": "P003",
+      "result": {
+        "target_part": "P003",
+        "reference": {
+          "id": "SRC-005",
+          "part_number": "P003",
+          "part_revision": "A",
+          "document_revision": 3,
+          "document_role": "reference_spec",
+          "approval_state": "approved",
+          "site": "B",
+          "source_hash": "f1cb02b7fba72b34c34b77168bbaa91c219ebc3bd9e4850bed1d77e83b4ccdb4"
+        },
+        "candidate": {
+          "id": "SRC-006",
+          "part_number": "P003",
+          "part_revision": "A",
+          "document_revision": 2,
+          "document_role": "candidate_drawing",
+          "approval_state": "draft",
+          "site": "B",
+          "source_hash": "6e55ae66a8aa6bbcd998003138075d9894c9326bbc1b7bfca5338ed48085cc33"
+        },
+        "extractions": [
+          {
+            "document_id": "SRC-005",
+            "provenance": {
+              "id": "SRC-005",
+              "part_number": "P003",
+              "part_revision": "A",
+              "document_revision": 3,
+              "document_role": "reference_spec",
+              "approval_state": "approved",
+              "site": "B",
+              "source_hash": "f1cb02b7fba72b34c34b77168bbaa91c219ebc3bd9e4850bed1d77e83b4ccdb4"
+            },
+            "fields": {
+              "material_grade": {
+                "raw_value": "STEEL_DC01",
+                "quote": "Material grade: STEEL_DC01",
+                "line": 3,
+                "span_start": 35,
+                "span_end": 61,
+                "state": "observed",
+                "value": "STEEL_DC01",
+                "unit": null
+              },
+              "finish_code": {
+                "raw_value": "ZN_NI",
+                "quote": "Finish code: ZN_NI",
+                "line": 4,
+                "span_start": 62,
+                "span_end": 80,
+                "state": "observed",
+                "value": "ZN_NI",
+                "unit": null
+              },
+              "coating_thickness": {
+                "raw_value": "8 µm",
+                "quote": "Coating thickness: 8 µm",
+                "line": 5,
+                "span_start": 81,
+                "span_end": 104,
+                "state": "nominal",
+                "value": "8",
+                "unit": "µm",
+                "normalized_um": "8"
+              }
+            },
+            "extraction_state": "model_proposal_source_verified",
+            "model_state": "source_verified",
+            "metrics": {
+              "load_duration": 178561359,
+              "prompt_eval_count": 234,
+              "prompt_eval_duration": 22887383,
+              "eval_count": 108,
+              "eval_duration": 1306433100,
+              "total_duration": 1933968110,
+              "done_reason": "stop",
+              "latency_ms": 1935.65,
+              "model": "qwen3:4b",
+              "requested_think": false,
+              "thinking_chars": 0,
+              "context_limit": 4096,
+              "concurrency": 1,
+              "trace_id": "761693c8-f734-408f-9a9d-63ab7bdcff4a",
+              "model_task": "independent_full_cell_extraction",
+              "thinking_off_verified": false,
+              "comparison_origin": "deterministic_rules",
+              "source_identity_origin": "server_envelope"
+            }
+          },
+          {
+            "document_id": "SRC-006",
+            "provenance": {
+              "id": "SRC-006",
+              "part_number": "P003",
+              "part_revision": "A",
+              "document_revision": 2,
+              "document_role": "candidate_drawing",
+              "approval_state": "draft",
+              "site": "B",
+              "source_hash": "6e55ae66a8aa6bbcd998003138075d9894c9326bbc1b7bfca5338ed48085cc33"
+            },
+            "fields": {
+              "material_grade": {
+                "raw_value": "STEEL_DC01",
+                "quote": "Material grade: STEEL_DC01",
+                "line": 3,
+                "span_start": 35,
+                "span_end": 61,
+                "state": "observed",
+                "value": "STEEL_DC01",
+                "unit": null
+              },
+              "finish_code": {
+                "raw_value": "NI",
+                "quote": "Finish code: NI",
+                "line": 4,
+                "span_start": 62,
+                "span_end": 77,
+                "state": "observed",
+                "value": "NI",
+                "unit": null
+              },
+              "coating_thickness": {
+                "raw_value": "",
+                "quote": "Coating thickness: ",
+                "line": 5,
+                "span_start": 78,
+                "span_end": 97,
+                "state": "information_missing",
+                "value": null,
+                "unit": null
+              }
+            },
+            "extraction_state": "model_proposal_source_verified",
+            "model_state": "source_verified",
+            "metrics": {
+              "load_duration": 170171226,
+              "prompt_eval_count": 228,
+              "prompt_eval_duration": 18805307,
+              "eval_count": 95,
+              "eval_duration": 1146243497,
+              "total_duration": 1726323343,
+              "done_reason": "stop",
+              "latency_ms": 1728.11,
+              "model": "qwen3:4b",
+              "requested_think": false,
+              "thinking_chars": 0,
+              "context_limit": 4096,
+              "concurrency": 1,
+              "trace_id": "b829cb14-b0e9-426c-8f3d-4cc044ac192f",
+              "model_task": "independent_full_cell_extraction",
+              "thinking_off_verified": false,
+              "comparison_origin": "deterministic_rules",
+              "source_identity_origin": "server_envelope"
+            }
+          }
+        ],
+        "checks": [
+          {
+            "field": "material_grade",
+            "state": "same_notation",
+            "reference_value": "STEEL_DC01",
+            "candidate_value": "STEEL_DC01",
+            "explanation": "전체 코드 표기의 동일성만 대조했습니다. 재질 대체·공학적 동등성은 판단하지 않습니다."
+          },
+          {
+            "field": "finish_code",
+            "state": "notation_difference",
+            "reference_value": "ZN_NI",
+            "candidate_value": "NI",
+            "explanation": "전체 코드 표기의 동일성만 대조했습니다. 재질 대체·공학적 동등성은 판단하지 않습니다."
+          },
+          {
+            "field": "coating_thickness",
+            "state": "information_missing",
+            "reference_value": "8 µm",
+            "candidate_value": "",
+            "explanation": "필수 표기 정보가 없거나 미정입니다. 누락을 0이나 적용 없음으로 해석하지 않습니다."
+          }
+        ],
+        "overall": "needs_review",
+        "required_coverage": {
+          "observed": 2,
+          "required": 3,
+          "complete": false
+        },
+        "fingerprint": "b51e888388067682043a5802d409073ca0cd7d9bc444c2d48c0c53b763b0cc34",
+        "policy_version": "annotation-v1",
+        "scope": "document_notation_only_not_engineering_or_manufacturing_approval",
+        "id": "4fed0a2b8bad4370b33db1c0837d90fc",
+        "site": "B",
+        "mode": "model",
+        "model_state": "source_verified",
+        "status": "pending_review",
+        "review_state": "unreviewed",
+        "review": null,
+        "audit": [
+          {
+            "id": "d189d531918543a3b549ea5ec411e242",
+            "timestamp": "2026-09-30T09:27:44Z",
+            "part_number": "P003",
+            "comparison_id": "4fed0a2b8bad4370b33db1c0837d90fc",
+            "actor_id": "B-reviewer",
+            "action": "comparison_created",
+            "mode": "model",
+            "model_state": "source_verified",
+            "overall": "needs_review",
+            "historical": false
+          }
+        ],
+        "stale": false,
+        "metrics": {
+          "synthetic": true,
+          "requested_mode": "model",
+          "scope": "notation_review_only",
+          "model_calls": [
+            {
+              "document_id": "SRC-005",
+              "load_duration": 178561359,
+              "prompt_eval_count": 234,
+              "prompt_eval_duration": 22887383,
+              "eval_count": 108,
+              "eval_duration": 1306433100,
+              "total_duration": 1933968110,
+              "done_reason": "stop",
+              "latency_ms": 1935.65,
+              "model": "qwen3:4b",
+              "requested_think": false,
+              "thinking_chars": 0,
+              "context_limit": 4096,
+              "concurrency": 1,
+              "trace_id": "761693c8-f734-408f-9a9d-63ab7bdcff4a",
+              "thinking_off_verified": false
+            },
+            {
+              "document_id": "SRC-006",
+              "load_duration": 170171226,
+              "prompt_eval_count": 228,
+              "prompt_eval_duration": 18805307,
+              "eval_count": 95,
+              "eval_duration": 1146243497,
+              "total_duration": 1726323343,
+              "done_reason": "stop",
+              "latency_ms": 1728.11,
+              "model": "qwen3:4b",
+              "requested_think": false,
+              "thinking_chars": 0,
+              "context_limit": 4096,
+              "concurrency": 1,
+              "trace_id": "b829cb14-b0e9-426c-8f3d-4cc044ac192f",
+              "thinking_off_verified": false
+            }
+          ],
+          "model_call_count": 2,
+          "model_latency_ms": 3663.76,
+          "generated_tokens": 203,
+          "prompt_tokens": 462,
+          "model_total_duration_ns": 3660291453,
+          "total_ms": 3665.245
+        }
+      }
+    }
+  ],
+  "resource_samples": [
+    {
+      "elapsed_s": 0.024,
+      "gpu_csv": "430, 0",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26785312
+      }
+    },
+    {
+      "elapsed_s": 0.348,
+      "gpu_csv": "438, 0",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26740212
+      }
+    },
+    {
+      "elapsed_s": 0.677,
+      "gpu_csv": "453, 24",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26545536
+      }
+    },
+    {
+      "elapsed_s": 1.003,
+      "gpu_csv": "3600, 24",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26429812
+      }
+    },
+    {
+      "elapsed_s": 1.325,
+      "gpu_csv": "3602, 24",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26413420
+      }
+    },
+    {
+      "elapsed_s": 1.646,
+      "gpu_csv": "3602, 34",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26116828
+      }
+    },
+    {
+      "elapsed_s": 1.968,
+      "gpu_csv": "3602, 34",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26044248
+      }
+    },
+    {
+      "elapsed_s": 2.292,
+      "gpu_csv": "3608, 34",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26057776
+      }
+    },
+    {
+      "elapsed_s": 2.616,
+      "gpu_csv": "3608, 83",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26037796
+      }
+    },
+    {
+      "elapsed_s": 2.941,
+      "gpu_csv": "3608, 83",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26042620
+      }
+    },
+    {
+      "elapsed_s": 3.264,
+      "gpu_csv": "3608, 83",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26014912
+      }
+    },
+    {
+      "elapsed_s": 3.587,
+      "gpu_csv": "3608, 81",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25989172
+      }
+    },
+    {
+      "elapsed_s": 3.908,
+      "gpu_csv": "3608, 81",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25929408
+      }
+    },
+    {
+      "elapsed_s": 4.23,
+      "gpu_csv": "3608, 81",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25852536
+      }
+    },
+    {
+      "elapsed_s": 4.578,
+      "gpu_csv": "3608, 85",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25835144
+      }
+    },
+    {
+      "elapsed_s": 4.902,
+      "gpu_csv": "3608, 85",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25818372
+      }
+    },
+    {
+      "elapsed_s": 5.225,
+      "gpu_csv": "3608, 85",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25807616
+      }
+    },
+    {
+      "elapsed_s": 5.549,
+      "gpu_csv": "3608, 89",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25789732
+      }
+    },
+    {
+      "elapsed_s": 5.87,
+      "gpu_csv": "3608, 89",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25744660
+      }
+    },
+    {
+      "elapsed_s": 6.192,
+      "gpu_csv": "3608, 89",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25717452
+      }
+    },
+    {
+      "elapsed_s": 6.515,
+      "gpu_csv": "3608, 81",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25709700
+      }
+    },
+    {
+      "elapsed_s": 6.837,
+      "gpu_csv": "3608, 81",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25708716
+      }
+    },
+    {
+      "elapsed_s": 7.16,
+      "gpu_csv": "3608, 81",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25718824
+      }
+    },
+    {
+      "elapsed_s": 7.484,
+      "gpu_csv": "3608, 87",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25710788
+      }
+    },
+    {
+      "elapsed_s": 7.805,
+      "gpu_csv": "3608, 87",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25690016
+      }
+    },
+    {
+      "elapsed_s": 8.127,
+      "gpu_csv": "3610, 87",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25699572
+      }
+    },
+    {
+      "elapsed_s": 8.452,
+      "gpu_csv": "3610, 86",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25700016
+      }
+    },
+    {
+      "elapsed_s": 8.776,
+      "gpu_csv": "3610, 86",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25698072
+      }
+    },
+    {
+      "elapsed_s": 9.1,
+      "gpu_csv": "3610, 86",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25694208
+      }
+    },
+    {
+      "elapsed_s": 9.424,
+      "gpu_csv": "3610, 86",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25646360
+      }
+    },
+    {
+      "elapsed_s": 9.745,
+      "gpu_csv": "3610, 88",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25684840
+      }
+    },
+    {
+      "elapsed_s": 10.069,
+      "gpu_csv": "3610, 88",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25644072
+      }
+    },
+    {
+      "elapsed_s": 10.391,
+      "gpu_csv": "3610, 88",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25621616
+      }
+    },
+    {
+      "elapsed_s": 10.714,
+      "gpu_csv": "3610, 81",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25617584
+      }
+    },
+    {
+      "elapsed_s": 11.038,
+      "gpu_csv": "3610, 81",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25606336
+      }
+    },
+    {
+      "elapsed_s": 11.36,
+      "gpu_csv": "3610, 81",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25582396
+      }
+    },
+    {
+      "elapsed_s": 11.682,
+      "gpu_csv": "3610, 87",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25563052
+      }
+    },
+    {
+      "elapsed_s": 12.006,
+      "gpu_csv": "3610, 87",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25543772
+      }
+    },
+    {
+      "elapsed_s": 12.329,
+      "gpu_csv": "3610, 87",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25538752
+      }
+    },
+    {
+      "elapsed_s": 12.654,
+      "gpu_csv": "3610, 81",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25547076
+      }
+    },
+    {
+      "elapsed_s": 12.978,
+      "gpu_csv": "3610, 81",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25567500
+      }
+    },
+    {
+      "elapsed_s": 13.3,
+      "gpu_csv": "3610, 81",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25573028
+      }
+    }
+  ],
+  "elapsed_s": 13.395745703019202,
+  "peak_vram_mib": 3610
+}

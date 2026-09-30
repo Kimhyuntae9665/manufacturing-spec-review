@@ -1,0 +1,7 @@
+# Shared inference safety and reuse
+The bounded localhost transport is copied from project 01 source commit 721949d17891bbb009b31b19a20469bd0946991c, with a shared persistent timeout barrier added to both projects. There is no runtime dependency on the other checkout.
+Both clients use the same user-owned ~/.cache/ax-lab/runtime/inference.lock by default. AX_LAB_INFERENCE_LOCK may explicitly select the same absolute private path for both processes. Clone ancestry is never used.
+One nonblocking OS lease permits one active request across project processes. A timeout creates inference.lock.blocked before releasing that lease: other projects and restarted processes refuse inference without sending HTTP. No automatic retry, clearing, or server stop is performed.
+Recovery is manual: verify the specific timed-out request has completed on the existing server, then explicitly remove only the blocked marker and restart the affected client process. /api/ps alone lists loaded models and cannot prove no request remains active. The repository does not provide an automatic recovery command.
+If marker persistence fails, the affected process retains its lease and must remain alive while server completion is uncertain; this fallback cannot guarantee exclusion after forced process termination.
+Qwen extraction is proposed independently per document. Hashes, part identity, revisions, roles, source spans and comparisons are server-derived. No source text is an instruction. Full-cell exact support is checked; this does not establish manufacturing suitability.

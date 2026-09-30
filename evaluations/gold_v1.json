@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "synthetic": true,
+  "expert_validated": false,
+  "frozen_before_model_extraction": true,
+  "frozen_at_utc": "2026-09-30T08:42:33Z",
+  "runtime_gold_access": false,
+  "cases": [
+    {
+      "id": "G01",
+      "kind": "pair",
+      "part": "P001",
+      "expected": {
+        "material": "same_notation",
+        "finish": "same_notation",
+        "thickness": "same_declared_nominal",
+        "overall": "annotations_match"
+      }
+    },
+    {
+      "id": "G02",
+      "kind": "pair",
+      "part": "P002",
+      "expected": {
+        "material": "notation_difference",
+        "finish": "same_notation",
+        "thickness": "same_declared_nominal",
+        "overall": "needs_review"
+      }
+    },
+    {
+      "id": "G03",
+      "kind": "pair",
+      "part": "P003",
+      "expected": {
+        "material": "same_notation",
+        "finish": "notation_difference",
+        "thickness": "information_missing",
+        "overall": "needs_review"
+      }
+    },
+    {
+      "id": "G04",
+      "kind": "field",
+      "raw": "0.010 mm",
+      "expected": {
+        "normalized_um": "10",
+        "state": "nominal"
+      }
+    },
+    {
+      "id": "G05",
+      "kind": "field",
+      "raw": "10 µm",
+      "expected": {
+        "normalized_um": "10",
+        "state": "nominal"
+      }
+    },
+    {
+      "id": "G06",
+      "kind": "field",
+      "raw": "",
+      "expected": {
+        "value": null,
+        "state": "information_missing"
+      }
+    },
+    {
+      "id": "G07",
+      "kind": "field",
+      "raw": "10 mil",
+      "expected": {
+        "state": "unsupported_unit"
+      }
+    },
+    {
+      "id": "G08",
+      "kind": "field",
+      "raw": "10 µm以上",
+      "expected": {
+        "state": "needs_review"
+      }
+    },
+    {
+      "id": "G09",
+      "kind": "field",
+      "raw": "8–12 µm",
+      "expected": {
+        "state": "needs_review"
+      }
+    },
+    {
+      "id": "G10",
+      "kind": "field",
+      "raw": "10 ± 2 µm",
+      "expected": {
+        "state": "needs_review"
+      }
+    },
+    {
+      "id": "G11",
+      "kind": "material",
+      "raw": "SUS304L",
+      "proposal": "SUS304",
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "id": "G12",
+      "kind": "material",
+      "raw": "SUS304 or SUS316",
+      "proposal": "SUS304",
+      "expected": {
+        "state": "needs_review",
+        "valid": false
+      }
+    },
+    {
+      "id": "G13",
+      "kind": "policy",
+      "name": "reference_is_draft",
+      "expected": {
+        "comparison_allowed": false
+      }
+    },
+    {
+      "id": "G14",
+      "kind": "policy",
+      "name": "candidate_is_draft",
+      "expected": {
+        "comparison_allowed": true
+      }
+    },
+    {
+      "id": "G15",
+      "kind": "identity",
+      "reference_part": "P001",
+      "candidate_part": "P002",
+      "expected": {
+        "comparison_allowed": false
+      }
+    },
+    {
+      "id": "G16",
+      "kind": "revision",
+      "reference_part_revision": "A",
+      "candidate_part_revision": "B",
+      "expected": {
+        "comparison_allowed": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "scope": "16 predeclared synthetic gold cases, not heldout industrial performance",
+  "synthetic": true,
+  "expert_validated": false,
+  "model_calls": 0,
+  "cases": [
+    {
+      "id": "G01",
+      "kind": "pair",
+      "expected": {
+        "material": "same_notation",
+        "finish": "same_notation",
+        "thickness": "same_declared_nominal",
+        "overall": "annotations_match"
+      },
+      "actual": {
+        "material": "same_notation",
+        "finish": "same_notation",
+        "thickness": "same_declared_nominal",
+        "overall": "annotations_match"
+      },
+      "passed": true
+    },
+    {
+      "id": "G02",
+      "kind": "pair",
+      "expected": {
+        "material": "notation_difference",
+        "finish": "same_notation",
+        "thickness": "same_declared_nominal",
+        "overall": "needs_review"
+      },
+      "actual": {
+        "material": "notation_difference",
+        "finish": "same_notation",
+        "thickness": "same_declared_nominal",
+        "overall": "needs_review"
+      },
+      "passed": true
+    },
+    {
+      "id": "G03",
+      "kind": "pair",
+      "expected": {
+        "material": "same_notation",
+        "finish": "notation_difference",
+        "thickness": "information_missing",
+        "overall": "needs_review"
+      },
+      "actual": {
+        "material": "same_notation",
+        "finish": "notation_difference",
+        "thickness": "information_missing",
+        "overall": "needs_review"
+      },
+      "passed": true
+    },
+    {
+      "id": "G04",
+      "kind": "field",
+      "expected": {
+        "normalized_um": "10",
+        "state": "nominal"
+      },
+      "actual": {
+        "state": "nominal",
+        "value": "0.010",
+        "unit": "mm",
+        "normalized_um": "10"
+      },
+      "passed": true
+    },
+    {
+      "id": "G05",
+      "kind": "field",
+      "expected": {
+        "normalized_um": "10",
+        "state": "nominal"
+      },
+      "actual": {
+        "state": "nominal",
+        "value": "10",
+        "unit": "µm",
+        "normalized_um": "10"
+      },
+      "passed": true
+    },
+    {
+      "id": "G06",
+      "kind": "field",
+      "expected": {
+        "value": null,
+        "state": "information_missing"
+      },
+      "actual": {
+        "state": "information_missing",
+        "value": null,
+        "unit": null
+      },
+      "passed": true
+    },
+    {
+      "id": "G07",
+      "kind": "field",
+      "expected": {
+        "state": "unsupported_unit"
+      },
+      "actual": {
+        "state": "unsupported_unit",
+        "value": null,
+        "unit": "mil"
+      },
+      "passed": true
+    },
+    {
+      "id": "G08",
+      "kind": "field",
+      "expected": {
+        "state": "needs_review"
+      },
+      "actual": {
+        "state": "needs_review",
+        "value": null,
+        "unit": null,
+        "reason": "qualified_or_alternative_cell"
+      },
+      "passed": true
+    },
+    {
+      "id": "G09",
+      "kind": "field",
+      "expected": {
+        "state": "needs_review"
+      },
+      "actual": {
+        "state": "needs_review",
+        "value": null,
+        "unit": null,
+        "reason": "qualified_or_alternative_cell"
+      },
+      "passed": true
+    },
+    {
+      "id": "G10",
+      "kind": "field",
+      "expected": {
+        "state": "needs_review"
+      },
+      "actual": {
+        "state": "needs_review",
+        "value": null,
+        "unit": null,
+        "reason": "qualified_or_alternative_cell"
+      },
+      "passed": true
+    },
+    {
+      "id": "G11",
+      "kind": "material",
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "state": "observed",
+        "valid": false
+      },
+      "passed": true
+    },
+    {
+      "id": "G12",
+      "kind": "material",
+      "expected": {
+        "state": "needs_review",
+        "valid": false
+      },
+      "actual": {
+        "state": "needs_review",
+        "valid": false
+      },
+      "passed": true
+    },
+    {
+      "id": "G13",
+      "kind": "policy",
+      "expected": {
+        "comparison_allowed": false
+      },
+      "actual": {
+        "comparison_allowed": false
+      },
+      "passed": true
+    },
+    {
+      "id": "G14",
+      "kind": "policy",
+      "expected": {
+        "comparison_allowed": true
+      },
+      "actual": {
+        "comparison_allowed": true
+      },
+      "passed": true
+    },
+    {
+      "id": "G15",
+      "kind": "identity",
+      "expected": {
+        "comparison_allowed": false
+      },
+      "actual": {
+        "comparison_allowed": false
+      },
+      "passed": true
+    },
+    {
+      "id": "G16",
+      "kind": "revision",
+      "expected": {
+        "comparison_allowed": false
+      },
+      "actual": {
+        "comparison_allowed": false
+      },
+      "passed": true
+    }
+  ],
+  "passed": 16,
+  "total": 16
+}

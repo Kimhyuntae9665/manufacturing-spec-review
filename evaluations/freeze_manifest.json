@@ -1,0 +1,8 @@
+{
+  "gold_sha256": "3a73755e9e86a228222ca7f67aa90dd46e557c5f212e83f63397c96dcedd9272",
+  "corpus_sha256": "fddb4a47cd32a94183279f1c16b503ecf1bf7f1de1f36b181e501b1003dcafc0",
+  "case_count": 16,
+  "part_count": 3,
+  "document_count": 6,
+  "model_requests_before_freeze": 0
+}

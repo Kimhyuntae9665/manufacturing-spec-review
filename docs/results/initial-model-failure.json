@@ -1,0 +1,286 @@
+{
+  "part": "P001",
+  "result": {
+    "target_part": "P001",
+    "reference": {
+      "id": "SRC-001",
+      "part_number": "P001",
+      "part_revision": "A",
+      "document_revision": 3,
+      "document_role": "reference_spec",
+      "approval_state": "approved",
+      "site": "A",
+      "source_hash": "1916a7c6e3cbc1dcc7b06ec194cc6022ceb217aa2fb8a98ce3837ae69cd90a0c"
+    },
+    "candidate": {
+      "id": "SRC-002",
+      "part_number": "P001",
+      "part_revision": "A",
+      "document_revision": 2,
+      "document_role": "candidate_drawing",
+      "approval_state": "draft",
+      "site": "A",
+      "source_hash": "4a692ed3c44a8a8da62519d78d7001524df3cbe0389e44f8c3c9e93187a6a9b7"
+    },
+    "extractions": [
+      {
+        "document_id": "SRC-001",
+        "provenance": {
+          "id": "SRC-001",
+          "part_number": "P001",
+          "part_revision": "A",
+          "document_revision": 3,
+          "document_role": "reference_spec",
+          "approval_state": "approved",
+          "site": "A",
+          "source_hash": "1916a7c6e3cbc1dcc7b06ec194cc6022ceb217aa2fb8a98ce3837ae69cd90a0c"
+        },
+        "fields": {
+          "material_grade": {
+            "raw_value": "AL5052",
+            "quote": "Material grade: AL5052",
+            "line": 3,
+            "span_start": 35,
+            "span_end": 57,
+            "state": "observed",
+            "value": "AL5052",
+            "unit": null
+          },
+          "finish_code": {
+            "raw_value": "BLACK_ANODIZE",
+            "quote": "Finish code: BLACK_ANODIZE",
+            "line": 4,
+            "span_start": 58,
+            "span_end": 84,
+            "state": "observed",
+            "value": "BLACK_ANODIZE",
+            "unit": null
+          },
+          "coating_thickness": {
+            "raw_value": "10 µm",
+            "quote": "Coating thickness: 10 µm",
+            "line": 5,
+            "span_start": 85,
+            "span_end": 109,
+            "state": "nominal",
+            "value": "10",
+            "unit": "µm",
+            "normalized_um": "10"
+          }
+        },
+        "extraction_state": "deterministic_observed",
+        "model_state": "not_requested"
+      },
+      {
+        "document_id": "SRC-002",
+        "provenance": {
+          "id": "SRC-002",
+          "part_number": "P001",
+          "part_revision": "A",
+          "document_revision": 2,
+          "document_role": "candidate_drawing",
+          "approval_state": "draft",
+          "site": "A",
+          "source_hash": "4a692ed3c44a8a8da62519d78d7001524df3cbe0389e44f8c3c9e93187a6a9b7"
+        },
+        "fields": {
+          "material_grade": {
+            "raw_value": "AL5052",
+            "quote": "Material grade: AL5052",
+            "line": 3,
+            "span_start": 35,
+            "span_end": 57,
+            "state": "observed",
+            "value": "AL5052",
+            "unit": null
+          },
+          "finish_code": {
+            "raw_value": "BLACK_ANODIZE",
+            "quote": "Finish code: BLACK_ANODIZE",
+            "line": 4,
+            "span_start": 58,
+            "span_end": 84,
+            "state": "observed",
+            "value": "BLACK_ANODIZE",
+            "unit": null
+          },
+          "coating_thickness": {
+            "raw_value": "0.010 mm",
+            "quote": "Coating thickness: 0.010 mm",
+            "line": 5,
+            "span_start": 85,
+            "span_end": 112,
+            "state": "nominal",
+            "value": "0.010",
+            "unit": "mm",
+            "normalized_um": "10"
+          }
+        },
+        "extraction_state": "deterministic_observed",
+        "model_state": "not_requested"
+      }
+    ],
+    "checks": [
+      {
+        "field": "material_grade",
+        "state": "same_notation",
+        "reference_value": "AL5052",
+        "candidate_value": "AL5052",
+        "explanation": "전체 코드 표기의 동일성만 대조했습니다. 재질 대체·공학적 동등성은 판단하지 않습니다."
+      },
+      {
+        "field": "finish_code",
+        "state": "same_notation",
+        "reference_value": "BLACK_ANODIZE",
+        "candidate_value": "BLACK_ANODIZE",
+        "explanation": "전체 코드 표기의 동일성만 대조했습니다. 재질 대체·공학적 동등성은 판단하지 않습니다."
+      },
+      {
+        "field": "coating_thickness",
+        "state": "same_declared_nominal",
+        "reference_value": "10 µm",
+        "candidate_value": "0.010 mm",
+        "explanation": "선언한 명목 mm/µm 환산값을 대조했습니다. 공차나 제조 적합성은 판단하지 않습니다."
+      }
+    ],
+    "overall": "annotations_match",
+    "required_coverage": {
+      "observed": 3,
+      "required": 3,
+      "complete": true
+    },
+    "fingerprint": "9fb57e9b31992d262313d1394e9ef102298d25a690037016143132ec209cb79f",
+    "policy_version": "annotation-v1",
+    "scope": "document_notation_only_not_engineering_or_manufacturing_approval",
+    "id": "9d70ece1ff694130bf0e09c8908e9a80",
+    "site": "A",
+    "mode": "model",
+    "model_state": "failed",
+    "status": "pending_manual_review",
+    "review_state": "unreviewed",
+    "review": null,
+    "audit": [
+      {
+        "id": "3e4dd4e750364c4197670dc07e0cfb5a",
+        "timestamp": "2026-09-30T09:23:54Z",
+        "part_number": "P001",
+        "comparison_id": "9d70ece1ff694130bf0e09c8908e9a80",
+        "actor_id": "A-reviewer",
+        "action": "comparison_created",
+        "mode": "model",
+        "model_state": "failed",
+        "overall": "annotations_match",
+        "historical": false
+      }
+    ],
+    "stale": false,
+    "metrics": {
+      "synthetic": true,
+      "requested_mode": "model",
+      "scope": "notation_review_only",
+      "model_error_kind": "model_extraction_failed",
+      "total_ms": 3553.341
+    }
+  },
+  "elapsed_s": 3.5813447991386056,
+  "resource_samples": [
+    {
+      "elapsed_s": 0.023,
+      "gpu_csv": "431, 0",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26824152
+      }
+    },
+    {
+      "elapsed_s": 0.345,
+      "gpu_csv": "431, 0",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26743828
+      }
+    },
+    {
+      "elapsed_s": 0.669,
+      "gpu_csv": "450, 0",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26539940
+      }
+    },
+    {
+      "elapsed_s": 0.994,
+      "gpu_csv": "3596, 0",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26399932
+      }
+    },
+    {
+      "elapsed_s": 1.316,
+      "gpu_csv": "3598, 99",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26403428
+      }
+    },
+    {
+      "elapsed_s": 1.637,
+      "gpu_csv": "3598, 99",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26093812
+      }
+    },
+    {
+      "elapsed_s": 1.96,
+      "gpu_csv": "3598, 99",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 26040844
+      }
+    },
+    {
+      "elapsed_s": 2.283,
+      "gpu_csv": "3604, 83",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25985976
+      }
+    },
+    {
+      "elapsed_s": 2.607,
+      "gpu_csv": "3604, 83",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25981108
+      }
+    },
+    {
+      "elapsed_s": 2.93,
+      "gpu_csv": "3604, 83",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25981144
+      }
+    },
+    {
+      "elapsed_s": 3.253,
+      "gpu_csv": "3604, 88",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25976604
+      }
+    },
+    {
+      "elapsed_s": 3.574,
+      "gpu_csv": "3604, 88",
+      "ram": {
+        "MemTotal_kib": 32806192,
+        "MemAvailable_kib": 25963988
+      }
+    }
+  ],
+  "synthetic": true,
+  "scope": "initial fixed synthetic model extraction, not heldout"
+}

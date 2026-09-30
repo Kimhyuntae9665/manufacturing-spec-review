@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "parts": [
+    {
+      "id": "P001",
+      "name": "라인 HMI 알루미늄 보호판",
+      "revision": "A",
+      "equipment_id": "EQ-HMI-01",
+      "line_id": "LINE-A-01",
+      "purpose": "단말 외장 부품 도면 주석 대조"
+    },
+    {
+      "id": "P002",
+      "name": "센서 브래킷",
+      "revision": "B",
+      "equipment_id": "EQ-SENSOR-02",
+      "line_id": "LINE-A-01",
+      "purpose": "부품 재질 표기 차이 확인"
+    },
+    {
+      "id": "P003",
+      "name": "컨베이어 체결판",
+      "revision": "A",
+      "equipment_id": "EQ-CONV-03",
+      "line_id": "LINE-B-02",
+      "purpose": "표면처리와 명목 도금 두께 정보 확인"
+    }
+  ],
+  "documents": [
+    {
+      "id": "SRC-001",
+      "part_number": "P001",
+      "part_revision": "A",
+      "document_revision": 3,
+      "document_role": "reference_spec",
+      "approval_state": "approved",
+      "site": "A",
+      "roles": [
+        "engineer",
+        "reviewer"
+      ],
+      "title": "P001 기준 사양",
+      "content": "Part number: P001\nPart revision: A\nMaterial grade: AL5052\nFinish code: BLACK_ANODIZE\nCoating thickness: 10 µm\nScope: drawing text annotation review only; no CAD geometry.\n",
+      "source_hash": "1916a7c6e3cbc1dcc7b06ec194cc6022ceb217aa2fb8a98ce3837ae69cd90a0c",
+      "extraction_state": "not_requested",
+      "review_state": "unreviewed"
+    },
+    {
+      "id": "SRC-002",
+      "part_number": "P001",
+      "part_revision": "A",
+      "document_revision": 2,
+      "document_role": "candidate_drawing",
+      "approval_state": "draft",
+      "site": "A",
+      "roles": [
+        "engineer",
+        "reviewer"
+      ],
+      "title": "P001 검토 도면 주석",
+      "content": "Part number: P001\nPart revision: A\nMaterial grade: AL5052\nFinish code: BLACK_ANODIZE\nCoating thickness: 0.010 mm\nScope: drawing text annotation review only; no CAD geometry.\n",
+      "source_hash": "4a692ed3c44a8a8da62519d78d7001524df3cbe0389e44f8c3c9e93187a6a9b7",
+      "extraction_state": "not_requested",
+      "review_state": "unreviewed"
+    },
+    {
+      "id": "SRC-003",
+      "part_number": "P002",
+      "part_revision": "B",
+      "document_revision": 3,
+      "document_role": "reference_spec",
+      "approval_state": "approved",
+      "site": "A",
+      "roles": [
+        "engineer",
+        "reviewer"
+      ],
+      "title": "P002 기준 사양",
+      "content": "Part number: P002\nPart revision: B\nMaterial grade: SUS304\nFinish code: PASSIVATE\nCoating thickness: 4 µm\nScope: drawing text annotation review only; no CAD geometry.\n",
+      "source_hash": "42dce8b5147c153b7b23b211c2afd1b2de1bb2b91dbd478f680ab154aa7df024",
+      "extraction_state": "not_requested",
+      "review_state": "unreviewed"
+    },
+    {
+      "id": "SRC-004",
+      "part_number": "P002",
+      "part_revision": "B",
+      "document_revision": 2,
+      "document_role": "candidate_drawing",
+      "approval_state": "draft",
+      "site": "A",
+      "roles": [
+        "engineer",
+        "reviewer"
+      ],
+      "title": "P002 검토 도면 주석",
+      "content": "Part number: P002\nPart revision: B\nMaterial grade: SUS304L\nFinish code: PASSIVATE\nCoating thickness: 4 µm\nScope: drawing text annotation review only; no CAD geometry.\n",
+      "source_hash": "c64fae824819a6fc6afae538abfb9f26109c00b33738b3be461d4c0ee6ef885e",
+      "extraction_state": "not_requested",
+      "review_state": "unreviewed"
+    },
+    {
+      "id": "SRC-005",
+      "part_number": "P003",
+      "part_revision": "A",
+      "document_revision": 3,
+      "document_role": "reference_spec",
+      "approval_state": "approved",
+      "site": "B",
+      "roles": [
+        "engineer",
+        "reviewer"
+      ],
+      "title": "P003 기준 사양",
+      "content": "Part number: P003\nPart revision: A\nMaterial grade: STEEL_DC01\nFinish code: ZN_NI\nCoating thickness: 8 µm\nScope: drawing text annotation review only; no CAD geometry.\n",
+      "source_hash": "f1cb02b7fba72b34c34b77168bbaa91c219ebc3bd9e4850bed1d77e83b4ccdb4",
+      "extraction_state": "not_requested",
+      "review_state": "unreviewed"
+    },
+    {
+      "id": "SRC-006",
+      "part_number": "P003",
+      "part_revision": "A",
+      "document_revision": 2,
+      "document_role": "candidate_drawing",
+      "approval_state": "draft",
+      "site": "B",
+      "roles": [
+        "engineer",
+        "reviewer"
+      ],
+      "title": "P003 검토 도면 주석",
+      "content": "Part number: P003\nPart revision: A\nMaterial grade: STEEL_DC01\nFinish code: NI\nCoating thickness: \nScope: drawing text annotation review only; no CAD geometry.\n",
+      "source_hash": "6e55ae66a8aa6bbcd998003138075d9894c9326bbc1b7bfca5338ed48085cc33",
+      "extraction_state": "not_requested",
+      "review_state": "unreviewed"
+    }
+  ]
+}

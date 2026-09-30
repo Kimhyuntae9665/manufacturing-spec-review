@@ -1,0 +1,95 @@
+{
+  "actual_browser": true,
+  "synthetic": true,
+  "real_model_requests": 0,
+  "mock_failure_case": true,
+  "screenshots": [
+    {
+      "file": "01-reference-candidate-provenance.png",
+      "purpose": "승인된 기준·초안 후보, 부품/문서 개정과 서버 원문 해시",
+      "actual_browser": true,
+      "synthetic": true,
+      "part": "P001",
+      "profile": "사이트 A / 설계·품질 담당",
+      "mode": "",
+      "overall": "",
+      "overflow": false
+    },
+    {
+      "file": "02-declared-nominal-conversion.png",
+      "purpose": "0.010 mm와10 µm의 선언 명목 환산·원문 필드",
+      "actual_browser": true,
+      "synthetic": true,
+      "part": "P001",
+      "profile": "사이트 A / 설계·품질 담당",
+      "mode": "규칙 기준선 · 모델 추론 없음",
+      "overall": "표기·선언 명목값 일치",
+      "overflow": false
+    },
+    {
+      "file": "03-material-notation-difference.png",
+      "purpose": "SUS304와SUS304L 전체 코드 표기 차이",
+      "actual_browser": true,
+      "synthetic": true,
+      "part": "P002",
+      "profile": "사이트 A / 설계·품질 담당",
+      "mode": "규칙 기준선 · 모델 추론 없음",
+      "overall": "추가 검토 필요",
+      "overflow": false
+    },
+    {
+      "file": "04-finish-difference-missing-thickness.png",
+      "purpose": "표면처리 차이·누락 두께를0으로 해석하지 않음",
+      "actual_browser": true,
+      "synthetic": true,
+      "part": "P003",
+      "profile": "사이트 B / 검토자",
+      "mode": "규칙 기준선 · 모델 추론 없음",
+      "overall": "추가 검토 필요",
+      "overflow": false
+    },
+    {
+      "file": "05-followup-record-and-audit.png",
+      "purpose": "후속 확인 기록·감사 이력; 후보는초안 유지",
+      "actual_browser": true,
+      "synthetic": true,
+      "part": "P002",
+      "profile": "사이트 A / 검토자",
+      "mode": "규칙 기준선 · 모델 추론 없음",
+      "overall": "추가 검토 필요",
+      "overflow": false
+    },
+    {
+      "file": "06-mock-failure-manual-confirmation.png",
+      "purpose": "브라우저 응답 모의 실패·실제 모델 요청0회·직접 원문 확인 체크",
+      "actual_browser": true,
+      "synthetic": true,
+      "part": "P001",
+      "profile": "사이트 A / 검토자",
+      "mode": "모델 실패 · 수동 원문 검토",
+      "overall": "추가 검토 필요",
+      "overflow": false
+    },
+    {
+      "file": "07-mobile-source-workspace.png",
+      "purpose": "모바일 원문 검토와 가로 넘침 검사",
+      "actual_browser": true,
+      "synthetic": true,
+      "part": "P001",
+      "profile": "사이트 A / 검토자",
+      "mode": "규칙 기준선 · 모델 추론 없음",
+      "overall": "표기·선언 명목값 일치",
+      "overflow": false
+    }
+  ],
+  "p001_nominal_same": true,
+  "engineer_write_disabled": true,
+  "whole_original_line_highlight": true,
+  "p002_material_difference": true,
+  "p003_missing_and_difference": true,
+  "review_not_design_approval": true,
+  "duplicate_write_blocked": true,
+  "reviewed_comparison_id": "5b336e26bb7044dab8c828c3d7a7f924",
+  "mock_failure_manual_checkbox_required": true,
+  "passed": true
+}
