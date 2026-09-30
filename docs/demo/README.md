@@ -83,3 +83,7 @@ MOCK — 실제 모델 실패 아님
 실제 모델 추출 저장 결과 GET
 
 ![표면처리 차이와 빈 두께](11-stored-real-model-p003.png)
+
+## Current readability captures
+
+Screens01-07 above now show the readability update. Screens08-11 and the retained video are historical model evidence from the preceding typography. [Eight native before/after captures and measured limits](../readability.md) are recorded separately. Current baseline/browser-failure-mock checks made zero actual-model requests; the mock remains explicitly labelled.

@@ -101,3 +101,7 @@ Ollama v0.17.7, 기존 Qwen3 4B Q4_K_M, RTX4060 8GB에서 측정했습니다. �
 
 ## 데이터·라이선스
 코드와 자체 synthetic fixtures는 MIT입니다. 모든 부품·설비·라인·문서·기록은 가상입니다. Panasonic 발표는 참고 링크이며 본문/이미지를 재배포하지 않습니다. 모델과 기업 실제 데이터는 포함하지 않습니다.
+
+## Readability verification
+
+[Actual before/after desktop and 390px mobile screenshots](docs/readability.md) document the 2026-09-30 update: source and quote text >=14px, long Korean explanations and controls16px, and measured normal-text contrast >=4.70:1. Native mobile width390px and scale1, reduced-motion scrolling, original-source quotation and reviewer acknowledgement boundaries passed without model requests. The retained video and stored-model screenshots predate this typography pass.

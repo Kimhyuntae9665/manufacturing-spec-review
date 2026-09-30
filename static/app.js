@@ -1,6 +1,7 @@
 "use strict";
 (() => {
   const byId = id => document.getElementById(id);
+  const scrollBehavior = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
   const labels = {
     roles: {engineer:"설계·품질 담당", reviewer:"검토자"},
     fields: {material_grade:"재질", finish_code:"표면처리", coating_thickness:"명목 코팅 두께"},
@@ -215,7 +216,7 @@
     if (field) {
       byId(side+"-span").className = "span-status " + (validSpan ? "valid" : "invalid");
       byId(side+"-span").textContent = validSpan ? "✓ 원문 전체 행 일치 · L" + field.line + " / Unicode span [" + field.span_start + ", " + field.span_end + ")" : "원문 행·span을 확인할 수 없습니다. 현재 문서와 검토 기록을 다시 확인하세요.";
-      if (validSpan) content.querySelector(".highlighted").scrollIntoView({behavior:"smooth",block:"nearest"});
+      if (validSpan) content.querySelector(".highlighted").scrollIntoView({behavior:scrollBehavior(),block:"nearest"});
     }
   }
   function renderPair() {
@@ -469,7 +470,7 @@
         renderComparison(); throw new Error("원문 출처가 변경되었습니다. 현재 원문으로 다시 대조해 주세요.");
       }
       state[side]=current; renderSource(side,field);
-      byId(side+"-original").scrollIntoView({behavior:"smooth",block:"nearest"});
+      byId(side+"-original").scrollIntoView({behavior:scrollBehavior(),block:"nearest"});
     } catch (error) {
       if (generation===state.generation) {
         if(error.status===403 || error.status===404) {
@@ -501,7 +502,7 @@
       if (generation!==state.generation) return;
       state.comparison=comparison; renderComparison();
       tell(invalidated(comparison) ? "이전 대조가 무효화되었습니다. 현재 원문으로 다시 대조해 주세요." : "",invalidated(comparison) ? "warning" : "");
-      byId("result").scrollIntoView({behavior:"smooth",block:"start"});
+      byId("result").scrollIntoView({behavior:scrollBehavior(),block:"start"});
     } catch (error) { if(generation===state.generation) errorMessage(error); }
     finally { state.loading=false; sync(); }
   }

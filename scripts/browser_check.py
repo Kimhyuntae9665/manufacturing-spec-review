@@ -95,10 +95,11 @@ class Browser:
 
 
 def connect():
-    with urllib.request.urlopen(DEBUG+"/json",timeout=10) as response:
-        pages=json.load(response)
-    address=next(page["webSocketDebuggerUrl"] for page in pages if page["type"]=="page")
-    browser=Browser(address)
+    request=urllib.request.Request(DEBUG+"/json/new?about:blank",method="PUT")
+    with urllib.request.urlopen(request,timeout=10) as response:
+        page=json.load(response)
+    browser=Browser(page["webSocketDebuggerUrl"])
+    browser.target_id=page["id"]
     browser.command("Page.enable")
     browser.command("Runtime.enable")
     return browser
@@ -125,7 +126,10 @@ def compare(browser, mode="baseline"):
 
 
 def screenshot(browser, directory, filename, purpose, screenshots):
-    page=browser.js("({part:document.querySelector('#part-id').textContent,profile:document.querySelector('#principal').textContent,mode:document.querySelector('#mode-badge').textContent,overall:document.querySelector('#overall').textContent,overflow:document.documentElement.scrollWidth>window.innerWidth,text:document.body.textContent})")
+    browser.command("Page.bringToFront")
+    browser.command("Emulation.setPageScaleFactor",pageScaleFactor=1)
+    browser.js("new Promise(done=>requestAnimationFrame(()=>requestAnimationFrame(()=>setTimeout(()=>requestAnimationFrame(()=>requestAnimationFrame(done)),500))))")
+    page=browser.js("({part:document.querySelector('#part-id').textContent,profile:document.querySelector('#principal').textContent,mode:document.querySelector('#mode-badge').textContent,overall:document.querySelector('#overall').textContent,overflow:document.documentElement.scrollWidth>window.innerWidth,css_width:innerWidth,viewport_width:visualViewport.width,viewport_scale:visualViewport.scale,scroll_y:scrollY,text:document.body.textContent})")
     private=[str(Path.home()),os.environ.get("USER","")]
     assert not any(marker and marker in page["text"] for marker in private),"Private path/account in rendered page"
     assert "Bearer " not in page["text"],"Authentication value in rendered page"
@@ -134,6 +138,43 @@ def screenshot(browser, directory, filename, purpose, screenshots):
     (directory/filename).write_bytes(base64.b64decode(capture["data"]))
     screenshots.append({"file":filename,"purpose":purpose,"actual_browser":True,"synthetic":True,**page})
     print(json.dumps({"captured":filename,"part":page["part"]},ensure_ascii=False),flush=True)
+
+
+def readability(browser):
+    """Measure rendered direct text using computed foreground/background colors."""
+    return browser.js(r"""(()=>{
+      const rgba=s=>{const m=s.match(/[\d.]+/g);return m?[+m[0],+m[1],+m[2],m[3]===undefined?1:+m[3]]:[255,255,255,1]};
+      const blend=(f,b)=>f.slice(0,3).map((v,i)=>v*f[3]+b[i]*(1-f[3]));
+      const bg=el=>{const chain=[];for(let n=el;n;n=n.parentElement)chain.unshift(n);let c=[255,255,255];for(const n of chain)c=blend(rgba(getComputedStyle(n).backgroundColor),c);return c};
+      const lum=c=>c.map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4}).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0);
+      const samples=[];for(const el of document.querySelectorAll('body *')){if(!el.getClientRects().length||el.closest('[hidden]')||el.matches('script,style'))continue;const text=Array.from(el.childNodes).filter(n=>n.nodeType===3).map(n=>n.textContent).join('').trim();if(!text)continue;const s=getComputedStyle(el),background=bg(el),foreground=blend(rgba(s.color),background),a=lum(foreground),b=lum(background);samples.push({selector:el.id?'#'+el.id:el.tagName.toLowerCase()+'.'+Array.from(el.classList).join('.'),text:text.slice(0,72),font_px:parseFloat(s.fontSize),contrast:(Math.max(a,b)+.05)/(Math.min(a,b)+.05),disabled:!!el.closest(':disabled')});}
+      const normal=samples.filter(x=>!x.disabled);return {samples,minimum_font_px:Math.min(...normal.map(x=>x.font_px)),minimum_contrast:Math.min(...normal.map(x=>x.contrast)),font_failures:normal.filter(x=>x.font_px<14),contrast_failures:normal.filter(x=>x.contrast<4.5)};
+    })()""")
+
+
+def readability_capture(browser, output, phase, screenshots):
+    login(browser,"A-reviewer")
+    select(browser,"P001")
+    compare(browser)
+    browser.js("document.querySelectorAll('.provenance').forEach(details=>details.open=true);document.querySelector('.source-grid').scrollIntoView({block:'start',behavior:'instant'});window.scrollBy(0,-20)")
+    screenshot(browser,output,"desktop-source.png",phase+" · 실제 원문·서버 출처",screenshots)
+    desktop=readability(browser)
+    browser.js("document.querySelector('#result').scrollIntoView({block:'start',behavior:'instant'});window.scrollBy(0,-20)")
+    screenshot(browser,output,"desktop-result.png",phase+" · 선언 명목 대조·전체 행 인용·검토 경계",screenshots)
+    browser.command("Emulation.setDeviceMetricsOverride",width=390,height=1100,deviceScaleFactor=1,mobile=True)
+    browser.js("scrollTo(0,0);document.querySelector('.source-grid').scrollIntoView({block:'start',behavior:'instant'});window.scrollBy(0,-10)")
+    screenshot(browser,output,"mobile-source.png",phase+" · 390px 원문",screenshots)
+    mobile=readability(browser)
+    browser.js("document.querySelector('#result').scrollIntoView({block:'start',behavior:'instant'});window.scrollBy(0,-10)")
+    screenshot(browser,output,"mobile-result.png",phase+" · 390px 대조·인용",screenshots)
+    report={"actual_browser":True,"phase":phase,"real_model_requests":0,"desktop":desktop,"mobile":mobile,"screenshots":screenshots}
+    (output/"readability.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
+    if phase=="after":
+        for measured in (desktop,mobile):
+            assert measured["minimum_font_px"]>=14,measured["font_failures"]
+            assert measured["minimum_contrast"]>=4.5,measured["contrast_failures"]
+        assert all(s["css_width"]==390 and s["viewport_scale"]==1 and not s["overflow"] for s in screenshots[2:]),screenshots[2:]
+    print(json.dumps({"phase":phase,"desktop_font":desktop["minimum_font_px"],"desktop_contrast":desktop["minimum_contrast"],"mobile_font":mobile["minimum_font_px"],"mobile_contrast":mobile["minimum_contrast"],"real_model_requests":0}),flush=True)
 
 
 def record_video(browser, output):
@@ -220,6 +261,7 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--output",default="artifacts/browser-check")
     parser.add_argument("--record-video",action="store_true")
+    parser.add_argument("--readability",choices=("before","after"),help="Baseline-only native before/after captures and computed text measurements")
     parser.add_argument("--stored-comparison",help="Read an existing root-owned comparison; never infer")
     parser.add_argument("--stored-part",default="P001")
     parser.add_argument("--stored-profile",default="A-reviewer")
@@ -235,6 +277,9 @@ def main():
         browser.command("Emulation.setDeviceMetricsOverride",width=1600,height=1200,deviceScaleFactor=1,mobile=False)
         browser.command("Page.navigate",url=APP)
         browser.until("document.querySelectorAll('#profile option').length===4 && !document.querySelector('#connect').disabled")
+        if args.readability:
+            readability_capture(browser,output,args.readability,screenshots)
+            return
         if args.record_video:
             record_video(browser,output)
             return
@@ -319,11 +364,24 @@ def main():
         screenshot(browser,output,"06-mock-failure-manual-confirmation.png","브라우저 응답 모의 실패·실제 모델 요청0회·직접 원문 확인 체크",screenshots)
         results["mock_failure_manual_checkbox_required"]=True
         browser.js("window.__notaProbe.mockFailure=false;window.fetch=window.__notaOriginalFetch")
-        compare(browser,"baseline")
+        reduced_id=compare(browser,"baseline")
+        browser.command("Emulation.setEmulatedMedia",features=[{"name":"prefers-reduced-motion","value":"reduce"}])
+        browser.js("window.__notaScrolls=[];window.__notaScrollOriginal=Element.prototype.scrollIntoView;Element.prototype.scrollIntoView=function(options){window.__notaScrolls.push(options);return window.__notaScrollOriginal.call(this,options)};document.querySelector('.quote-button').click()")
+        browser.until("document.querySelector('#reference-span').textContent.includes('전체 행 일치') && window.__notaScrolls.length>=2")
+        browser.js("Array.from(document.querySelectorAll('#audit-list .audit-event')).find(row=>row.textContent.includes("+json.dumps(reduced_id)+")).querySelector('button').click()")
+        browser.until("!document.querySelector('#compare').disabled && window.__notaScrolls.length>=3")
+        assert browser.js("window.__notaScrolls.every(options=>options.behavior==='auto') && getComputedStyle(document.querySelector('.spinner')).animationName==='none'"),"Reduced-motion preference ignored"
+        results["reduced_motion_quote_and_history_scroll"]=True
+        browser.js("Element.prototype.scrollIntoView=window.__notaScrollOriginal")
+        browser.command("Emulation.setEmulatedMedia",features=[])
         browser.command("Emulation.setDeviceMetricsOverride",width=390,height=1100,deviceScaleFactor=1,mobile=True)
-        browser.js("document.querySelector('#main').scrollIntoView({block:'start'})")
+        browser.js("scrollTo(0,0);document.querySelector('#main').scrollIntoView({block:'start',behavior:'instant'})")
         screenshot(browser,output,"07-mobile-source-workspace.png","모바일 원문 검토와 가로 넘침 검사",screenshots)
         assert not screenshots[-1]["overflow"],"Mobile horizontal overflow"
+        assert screenshots[-1]["css_width"]==390 and screenshots[-1]["viewport_scale"]==1,"Mobile auto-shrank CSS viewport"
+        measured=readability(browser)
+        assert measured["minimum_font_px"]>=14 and measured["minimum_contrast"]>=4.5,measured
+        results["readability"]={key:value for key,value in measured.items() if key!="samples"}
         results["passed"]=True
         (output/"result.json").write_text(json.dumps(results,ensure_ascii=False,indent=2),encoding="utf-8")
         print(json.dumps({key:value for key,value in results.items() if key!="screenshots"},ensure_ascii=False),flush=True)
@@ -331,6 +389,8 @@ def main():
         try:browser.js("if(window.__notaOriginalFetch)window.fetch=window.__notaOriginalFetch")
         except Exception:pass
         browser.connection.close()
+        with urllib.request.urlopen(DEBUG+"/json/close/"+browser.target_id,timeout=10) as response:
+            response.read()
 
 
 if __name__=="__main__":
