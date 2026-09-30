@@ -1,5 +1,6 @@
-"""Isolated actual Chrome capture for the P02 visual refit; baseline only."""
+"""Isolated actual Chrome capture for the P02 visual refit; no new model calls."""
 import os
+import json
 import sqlite3
 import socket
 import subprocess
@@ -53,8 +54,25 @@ def main():
             ready(f"http://127.0.0.1:{DEBUG_PORT}/json/version")
             check.APP = f"http://127.0.0.1:{APP_PORT}"
             check.DEBUG = f"http://127.0.0.1:{DEBUG_PORT}"
-            sys.argv = ["browser_check.py", "--output", "docs/demo/current"]
+            original_screenshot = check.screenshot
+
+            def feature_framing(browser, directory, filename, purpose, screenshots):
+                target = {
+                    "01-reference-candidate-provenance.png": ".source-grid",
+                    "06-mock-failure-manual-confirmation.png": "#review-section",
+                    "07-mobile-source-workspace.png": ".source-grid",
+                }.get(filename)
+                if target:
+                    browser.js("document.querySelector(" + json.dumps(target)
+                               + ").scrollIntoView({block:'start',behavior:'instant'});window.scrollBy(0,-12)")
+                return original_screenshot(browser, directory, filename, purpose, screenshots)
+
+            check.screenshot = feature_framing
+            capture_output = os.environ.get("P02_CAPTURE_OUTPUT", "docs/demo/current")
+            sys.argv = ["browser_check.py", "--output", capture_output]
             check.main()
+            if os.environ.get("P02_CAPTURE_ONLY_BASELINE") == "1":
+                return
             saved = [
                 ("9d70ece1ff694130bf0e09c8908e9a80", "P001", "A-reviewer", "failed", "08-real-model-failure-manual-review.png"),
                 ("69943ccbf20d4727af36569711b5950b", "P001", "A-reviewer", "source_verified", "09-stored-real-model-p001.png"),
