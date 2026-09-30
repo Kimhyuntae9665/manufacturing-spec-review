@@ -1,0 +1,24 @@
+{
+  "actual_browser": true,
+  "synthetic": true,
+  "new_model_requests": 0,
+  "read_only_stored_comparison": "69943ccbf20d4727af36569711b5950b",
+  "expected_model_state": "source_verified",
+  "screenshots": [
+    {
+      "file": "09-stored-real-model-p001.png",
+      "purpose": "부모가 실행한 실제 모델의 정형 제안을 읽기 전용으로 재조회: 표기 대조이며 공학 판정 아님",
+      "actual_browser": true,
+      "synthetic": true,
+      "part": "P001",
+      "profile": "사이트 A / 검토자",
+      "mode": "모델 제안 · 문서별 원문 검증",
+      "overall": "표기·선언 명목값 일치",
+      "overflow": false,
+      "css_width": 1600,
+      "viewport_width": 1585,
+      "viewport_scale": 1,
+      "scroll_y": 1372
+    }
+  ]
+}

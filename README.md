@@ -29,16 +29,63 @@ Browser and authorized JSON feed Python source validation and Decimal comparison
 | 업무 개선 | 재현 평가·실패 기록 | [평가](docs/evaluation.md) | 실제 공장 ROI/공수 절감 |
 기업 발표의 효과는 이 프로젝트 성과가 아닙니다. 제조 전문가 검증으로 표현하지 않습니다.
 
-## 실제 화면
-[실제 브라우저 동작 영상 (9초, 무음)](docs/demo/video/nota-workflow.mp4): 규칙 비교와 기존 실제 모델 결과의 읽기 전용 조회를 녹화했습니다. 녹화 중 새 추론은 하지 않았습니다.
+## 현재 실제 화면
 
-[화면 갤러리](docs/demo/README.md)에서 부품별 차이·누락·원문·검토·모바일을 확인합니다. 실제 브라우저 화면이며 규칙 비교, 실제 모델, 명시적 failure mock을 구분합니다.
+승인된 P09 v2 개발 화면의 밝은 회색 바탕, 남색 문자·버튼, 흰색 원문 카드와 두 칸 구성을 이 업무 화면에 적용했습니다. 아래는 **새 스타일을 실제 Chrome에서 다시 캡처한 화면**입니다. 합성 문서만 표시하며 화면 합성이나 모델 재실행은 하지 않았습니다. [현재 11개 상태 전체와 캡처 근거](docs/demo/current/README.md) · [새 실제 동작 영상 (9.47초, 무음)](docs/demo/current/video/nota-workflow.mp4). 기존 [초기 화면 갤러리](docs/demo/README.md)는 이전 UI의 역사적 기록입니다.
 
-![선언 명목 단위 대조: 규칙 baseline](docs/demo/02-declared-nominal-conversion.png)
+### 1. 기준 사양과 후보 도면
 
-![재질 표기 차이: 실제 모델 저장 결과](docs/demo/10-stored-real-model-p002.png)
+두 문서의 역할, 부품·문서 개정과 원문 출처를 나란히 확인합니다.
 
-![정보 부족: 규칙 baseline](docs/demo/04-finish-difference-missing-thickness.png)
+![현재 UI: 기준 사양과 후보 도면 원문](docs/demo/current/01-reference-candidate-provenance.png)
+
+### 2. 명목 두께의 선언 단위 대조
+
+규칙 기준선은 10 µm와 0.010 mm를 선언된 단위 규칙으로만 대조합니다.
+
+![현재 UI: 선언 단위 환산 결과](docs/demo/current/02-declared-nominal-conversion.png)
+
+### 3. 재질 코드 표기 차이
+
+SUS304와 SUS304L은 별도 표기이며 대체 적합성은 판단하지 않습니다.
+
+![현재 UI: 재질 표기 차이](docs/demo/current/03-material-notation-difference.png)
+
+### 4. 누락과 표면처리 차이
+
+빈 두께를 0으로 채우지 않고 추가 검토로 남깁니다.
+
+![현재 UI: 표면처리 차이와 두께 누락](docs/demo/current/04-finish-difference-missing-thickness.png)
+
+### 5. 사람의 후속 확인과 이력
+
+후속 확인은 설계 승인이 아닙니다. 반복 제출도 새 승인으로 처리하지 않습니다.
+
+![현재 UI: 후속 확인 기록과 감사 이력](docs/demo/current/05-followup-record-and-audit.png)
+
+### 6. 실패 시 수동 원문 확인
+
+이 화면은 **브라우저 응답을 모의한 실패**이며 실제 모델 요청은 0회입니다.
+
+![현재 UI: 명시적 모의 실패와 수동 확인](docs/demo/current/06-mock-failure-manual-confirmation.png)
+
+### 7. 모바일 원문 검토
+
+390px Chrome 화면에서 가로 넘침 없이 문서와 비교로 이동합니다.
+
+![현재 UI: 모바일 원문 검토](docs/demo/current/07-mobile-source-workspace.png)
+
+### 8. 기존 실제 모델의 인용 실패
+
+과거 실제 모델 추출의 인용 오류를 저장 결과에서 **읽기 전용**으로 다시 열었습니다. 새 추론은 없습니다.
+
+![현재 UI: 저장된 실제 모델 인용 실패](docs/demo/current/08-real-model-failure-manual-review.png)
+
+### 9. 기존 실제 모델의 재질 대조
+
+과거 P002 실제 모델 제안을 저장 결과에서 **읽기 전용**으로 다시 열었습니다. 원문 검사 통과는 공학적 동등성 판정이 아닙니다.
+
+![현재 UI: 저장된 실제 모델 재질 표기 대조](docs/demo/current/10-stored-real-model-p002.png)
 
 
 ## 업무 흐름
